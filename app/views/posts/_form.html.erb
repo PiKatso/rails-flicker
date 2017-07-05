@@ -1,0 +1,10 @@
+<%= render "layouts/errors", :object => @post %>
+
+<%= form_for @post do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  <%= f.hidden_field(:user_id, :value => current_user.id) %>
+  <%= f.submit %>
+<% end %>

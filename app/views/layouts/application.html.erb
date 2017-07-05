@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= current_user.username %> | <%= link_to "Sign out", 'users/sign_out' %>
+    <% else %>
+      <%= link_to "Sign up", 'users/sign_up' %> | <%= link_to "Sign in", '/users/sign_in' %>
+    <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 

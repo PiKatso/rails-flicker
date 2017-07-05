@@ -1,0 +1,9 @@
+<h1>Show Post</h1>
+
+<h3><%= @post.content %></h3>
+
+<p><%= link_to "Edit", edit_post_path(@post) %></p>
+<p><%= link_to "Delete", post_path(@post),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+<p><%= link_to "Return to posts", posts_path %></p>

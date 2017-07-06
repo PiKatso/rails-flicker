@@ -1,6 +1,9 @@
 <h1>Show Post</h1>
 
 <h3><%= @post.content %></h3>
+<%= image_tag @post.image %>
+
+<h5><%= link_to "Leave a comment", new_post_comment_path(@post) %></h5>
 
 <p><%= link_to "Edit", edit_post_path(@post) %></p>
 <p><%= link_to "Delete", post_path(@post),

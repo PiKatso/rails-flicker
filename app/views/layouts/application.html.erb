@@ -9,17 +9,26 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= current_user.username %> | <%= link_to "Sign out", destroy_user_session_path, method: 'delete' %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav ">
+        <% if current_user %>
+        <span class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></span>
+          <%= current_user.username %> |
+          <%= link_to "Sign out", destroy_user_session_path, method: 'delete' %> |
+          <%= link_to 'Edit Profile',edit_user_registration_path %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </ul>
+    </div>
 
 
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
   </body>
 </html>

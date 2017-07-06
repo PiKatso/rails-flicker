@@ -21,5 +21,7 @@ class Users::SessionsController < Devise::SessionsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
+    #  devise_parameter_sanitizer.for(:account_update) {
+    #     |u| u.permit(:username, :email, :password, :current_password, :avatar) }
   end
 end

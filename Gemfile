@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'paperclip', '~> 4.1'
 
 # gem 'capistrano-rails', group: :development
 

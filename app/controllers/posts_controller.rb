@@ -1,8 +1,18 @@
 class PostsController < ApplicationController
+  before_action :require_permission, only: :edit
+
   before_action :only => [:edit] do
-    redirect_to new_user_session_path unless current_user && current_user.admin
+    redirect_to post_path unless current_user && current_user.admin
   end
 
+  def require_permission
+    if current_user != Post.find(params[:id]).user
+      redirect_to root_path
+    else
+      @post = Post.find(params[:id])
+      render :edit
+    end
+  end
 
   def index
     @posts = Post.all

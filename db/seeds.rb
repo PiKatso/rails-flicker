@@ -11,14 +11,15 @@ Comment.destroy_all
   )
   5.times do |i|
    post = user.posts.create!(
-     image: "http://www.qygjxz.com/data/out/179/5477898-pics-of-nature.jpg",
+     image: "https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg",
      content: Faker::Friends.quote
      )
-  #  3.times do |i|
-  #    comment = post.comments.create!(
-  #        content: Faker::TwinPeaks.quote
-  #        )
-  #  end
+   3.times do |i|
+     comment = post.comments.create!(
+         content: Faker::TwinPeaks.quote,
+         user_id: Faker::Number.between(1, 2)
+         )
+   end
   end
 end
 

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :only => [:edit] do
+    redirect_to new_user_session_path unless current_user && current_user.admin
+  end
 
 
   def index
@@ -8,7 +10,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = Comment.all
   end
 
   def new
